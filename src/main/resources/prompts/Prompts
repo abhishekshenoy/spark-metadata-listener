@@ -30,7 +30,7 @@ I want to have the Listener written in Scala .Also to give a hint , I have tried
 With the current output i am getting all stage and task details and garbage being printed , i don t want all that.
 My goal is at the end if there a Workflow with multiple write , for each capture what were the source tables present for the write , metrics assocated with the source tables , filters applied and metrics after the filter. I have explained in detail above regarding the version and file formats . Can you help me with this request
 
-
+================================================================================
 
 Hi Claude ,      To give you some context , I was working with you earlier on a problem statement as mentioned below.   ``` I have a use case to solve for that I have depicted below wherein I am using Apache Spark 3.3.2 , Java 8 and Scala 2.12.4  In my use case I am trying to capture metadata around all the  ETL workflows written in spark Scala by writing a pluggable listener to my Apache Spark ETL jobs.
 
@@ -58,7 +58,7 @@ In Source Node Detail I want to capture Table/Folder Name , columns projected , 
 In Target Node Detail I want to capture Table/Folder Name and Metrics.  ```  With your help I was able successfully build the below pasted code. I want to continue our implementation as there are some fixes needed on this. Can get hold of the entire context so that we can continue solving ?
 
 
-
+================================================================================
 
 
 I think i was wrong with the understanding that the metrics being pulled are correctly getting mapped.
@@ -132,3 +132,40 @@ SOURCE NODES:
   ================================================================================
 
   ```
+
+
+
+  ================================================================================
+
+
+
+  Hi Claude,
+
+  To give you some context , I was working with you earlier on a problem statement as mentioned below.
+
+  I have a use case to solve for that I have depicted below wherein I am using Apache Spark 3.3.2 , Java 8 and Scala 2.12.4 In my use case I am trying to capture metadata around all the  ETL workflows written in spark Scala by writing a pluggable listener to my Apache Spark ETL jobs.
+
+  My goal that I want to achieve with this listener is as below .
+
+  Whenever there is an Action in called in Spark , I want my listener to capture the below details.
+
+  1) I want to capture specifically for FileSources that are read and currently want to focus only on the below sources.
+
+  * It can be a file source on local filesystem , cloud storage or Hadoop file system  and focus on file format being Parquet or ORC.
+
+  2) Metrics around Files Read , Records Read , Data Size Scanned from the source.
+
+  3) The filter operations that are applied on the above sources.
+
+  4) Metrics around Files Read , Records Read , Data Size Scanned post the filter operations are applied on the datasource.As per my knowledge , this logic should be same and deducible irrespective of type of FileSource (LocalFs , HDFS , Cloud Storage).
+
+  Once you are able to capture the metrics what I want to represent is below.
+
+  For each action capture SourceNode Details and Target Node Details.
+
+  1 Action there can be N Source Node Details but only 1 Target Node Detail.
+
+  In Source Node Detail I want to capture Table/Folder Name , columns projected , filters applied , Metrics before the filter , Metrics After Filter
+
+  In Target Node Detail I want to capture Table/Folder Name and Metrics.
+   With your help I was able successfully build the below pasted code. I want to continue our implementation as there are some fixes needed on this. Can get hold of the entire context so that we can continue solving ?
