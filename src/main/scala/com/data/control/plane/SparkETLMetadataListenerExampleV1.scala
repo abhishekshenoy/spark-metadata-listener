@@ -19,7 +19,7 @@ object SparkETLMetadataListenerExampleV1 {
     spark.sparkContext.setLogLevel("WARN")
 
     // Create and register the listener
-    val metadataListener = new SparkETLMetadataListener()
+    val metadataListener = new SparkETLMetadataListenerV1()
     metadataListener.registerWithSparkSession(spark)
 
     import spark.implicits._
